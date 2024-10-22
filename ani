@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accès protégé</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: none; /* Caché au départ */
+        }
+        #login {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            color: #666;
+        }
+        input {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-right: 10px;
+        }
+        button {
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #5cb85c;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #4cae4c;
+        }
+    </style>
+</head>
+<body>
+    <!-- Formulaire de mot de passe -->
+    <div id="login">
+        <h1>Entrez le mot de passe</h1>
+        <input type="password" id="password" placeholder="Mot de passe">
+        <button onclick="checkPassword()">Valider</button>
+        <p id="error-message" style="color: red; display: none;">Mot de passe incorrect, réessayez.</p>
+        <p class="hint">Indice : usuku lokuzalwa.</p> <!-- Modifie l'indice ici -->
+    </div>
+    </div>
+
+    <!-- Texte caché qui s'affiche après validation -->
+    <div class="container" id="content">
+        <h1>Félicitations !</h1>
+        <p>Tu gagne une journée d'initiation à l'alpinisme avec le repas du soir en refuge</p>
+    </div>
+
+    <script>
+        function checkPassword() {
+            var password = document.getElementById("password").value;
+            var correctPassword = "22"; // Le mot de passe correct
+
+            if (password === correctPassword) {
+                document.getElementById("login").style.display = "none"; // Cacher le formulaire
+                document.getElementById("content").style.display = "block"; // Afficher le texte
+            } else {
+                document.getElementById("error-message").style.display = "block"; // Afficher le message d'erreur
+            }
+        }
+    </script>
+</body>
+</html>
